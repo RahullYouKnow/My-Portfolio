@@ -1,0 +1,676 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif; /* Instant SaaS upgrade */
+}
+
+/* 2. THE ETHEREAL CLOUD BACKGROUND */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8faff; /* Very light cool white */
+  /* These create the large, soft blue blurry blobs on the left and right */
+  background-image:
+    radial-gradient(
+      40% 50% at 10% 40%,
+      rgba(150, 180, 255, 0.25) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      40% 50% at 90% 60%,
+      rgba(180, 210, 255, 0.2) 0%,
+      transparent 100%
+    );
+  background-attachment: fixed;
+  color: #1a1a1a;
+}
+
+/* Base Nav (At the absolute top - Invisible & Blended) */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 90%;
+
+  margin: 20px auto;
+  position: sticky;
+  top: 20px;
+  z-index: 1000;
+
+  padding: 8px 25px;
+  height: 55px;
+
+  /* Invisible properties */
+  background: transparent;
+  border: 1px solid transparent; /* Keeps the spacing but remains invisible */
+  border-radius: 40px;
+  box-shadow: none;
+
+  transition: 0.3s; /* Smoothly animates the background and border */
+}
+
+/* Scrolled Nav (Activated via JavaScript when user scrolls) */
+/* Update your scrolled state to this */
+nav.scrolled {
+  /* Soft Ice-Blue Glass Base instead of pure white */
+  background: rgba(240, 245, 255, 0.65);
+  max-width: 1000px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  /* Subtle blueish-white border (removes the dull gray) */
+  border: 1px solid rgba(200, 215, 255, 0.8);
+
+  /* Tinted drop shadow to enhance the blue glow */
+  box-shadow: 0 10px 30px rgba(77, 107, 254, 0.08);
+}
+
+/* Ensure the logo stays crisp in both states */
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  /* Space for when you add your custom icon */
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #333; /* DeepSeek-style brand blue */
+  text-transform: lowercase; /* Forces text to deepseek style */
+  cursor: pointer;
+}
+
+/* Fix 2: The Soft Pill Button */
+.nav-links button {
+  background: transparent;
+  border: 1px solid #d1d5db; /* Soft gray border, not black */
+  border-radius: 20px; /* Creates the pill shape */
+  padding: 8px 18px; /* Gives the text room to breathe */
+  font-size: 0.9rem;
+  color: #374151;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  transition: 0.3s;
+}
+
+.nav-links button:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  transform: translateY(-2px);
+}
+
+/* The Nav Contact Button */
+.nav-contact-btn {
+  background: #4d6bfe; /* Brand Blue */
+  color: #ffffff !important;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 20px; /* Pill shape */
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(77, 107, 254, 0.2);
+}
+
+.nav-contact-btn:hover {
+  background: #3b5bdb;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(77, 107, 254, 0.4);
+}
+
+/* Fix spacing in nav-links if it feels too tight */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Centered Hero Section */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px 20px 20px; /* Reduced top padding from 100px to 40px */
+}
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: 400; /* Reduced from 500/700 for a cleaner look */
+  color: #1f2937;
+  margin-bottom: 25px;
+  letter-spacing: -0.5px;
+}
+/* The Pill-shaped Search Box */
+/* The Sleek Portfolio Badge (No more chat box) */
+.hero-badge {
+  display: inline-flex; /* Keeps it wrapped tight around the text */
+  align-items: center;
+  gap: 10px;
+
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 40px; /* Clean pill shape */
+  padding: 12px 24px;
+  margin-bottom: 35px;
+
+  color: #475569;
+  font-weight: 500;
+  font-size: 0.95rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+}
+
+.hero-badge i {
+  color: #4d6bfe; /* Brand accent icon */
+  font-size: 1.1rem;
+}
+
+/* Skill Badges Container */
+.skill-badges {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 35px; /* Spaces them perfectly above the buttons */
+}
+
+/* Individual Badge Styling */
+.skill-badges span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+
+  /* Premium Glassmorphism Look */
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px; /* Clean pill shape */
+
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+  cursor: default;
+}
+
+/* Hover Effect - Slight lift */
+.skill-badges span:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Official Tech Colors for the Icons */
+.badge-html i {
+  color: #e34c26;
+  font-size: 1.1rem;
+}
+.badge-css i {
+  color: #264de4;
+  font-size: 1.1rem;
+}
+.badge-js i {
+  color: #eab308;
+  font-size: 1.1rem;
+} /* Custom yellow for better contrast */
+.badge-soon i {
+  color: #8b5cf6;
+  font-size: 1.1rem;
+}
+/* Action Buttons Below Search */
+/* --- Projects Section Layout --- */
+.projects-section {
+  max-width: 1000px;
+  width: 90%;
+  margin: 80px auto 40px auto; /* Creates clean spacing below the hero section */
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #1f2937;
+  margin-bottom: 30px;
+  letter-spacing: -0.5px;
+}
+
+/* CSS Grid Magic - Auto responsive */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* --- Premium Glass Project Cards --- */
+.project-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Hover State - Soft lift and glow */
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px -10px rgba(79, 70, 229, 0.15);
+}
+
+/* --- Card Internal Styling --- */
+.project-icon {
+  width: 50px;
+  height: 50px;
+  background: #f0f5ff;
+  color: #4d6bfe;
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.project-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 25px;
+  flex-grow: 1; /* CRITICAL: Pushes the bottom elements down evenly across all cards */
+}
+
+/* Mini Tags for Specific Tech */
+.card-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.card-tags span {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #475569;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #e2e8f0;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+/* View Live Link */
+.project-link {
+  text-decoration: none;
+  color: #4d6bfe;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: gap 0.2s ease;
+}
+
+/* Interaction: Arrow slides right on hover */
+.project-link:hover {
+  gap: 10px;
+}
+
+/* 4. Ensure your Logo text matches the brand color */
+.logo span {
+  color: #4d6bfe;
+}
+
+/* --- Minor Projects Row --- */
+.other-projects {
+  margin-top: 60px;
+  text-align: center;
+}
+
+/* Subtle Section Header */
+.other-projects h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Interactive Glass Pills for Links */
+.other-projects-links {
+  display: flex;
+  flex-wrap: wrap; /* Allows pills to naturally wrap to next line on mobile */
+  justify-content: center;
+  gap: 15px;
+}
+
+.other-projects-links a {
+  text-decoration: none;
+  color: #475569;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.5); /* Semi-transparent glass */
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 8px 20px;
+  border-radius: 30px; /* Creates the pill shape */
+  transition: all 0.2s ease;
+}
+
+/* Hover Effect - Glows blue and lifts */
+.other-projects-links a:hover {
+  background: #ffffff;
+  color: #4d6bfe;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(77, 107, 254, 0.1);
+}
+/* Bottom Footer */
+/* --- Footer Architecture --- */
+/* --- Sleek Minimal Footer --- */
+footer {
+  margin-top: auto;
+  padding: 40px 20px;
+  /* subtle line to separate it from the projects section */
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  background: transparent;
+}
+
+.footer-content {
+  max-width: 1000px; /* Matches your projects grid exactly */
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand Area */
+.footer-brand .logo-text {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 1.05rem;
+}
+
+.footer-brand p {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* Social Links */
+.footer-socials {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-socials a {
+  color: #94a3b8; /* Subtle gray */
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect - Turns your brand blue */
+.footer-socials a:hover {
+  color: #4d6bfe;
+  transform: translateY(-3px);
+}
+
+/* darkMode */
+
+/* =========================================
+   DARK MODE ARCHITECTURE (Deep Slate & Neon)
+   ========================================= */
+
+/* 1. Base Background & Glowing Mesh */
+body.dark-mode {
+  background-color: #020617; /* Deep Space Slate (Not pure black) */
+  background-image:
+    radial-gradient(
+      40% 50% at 10% 40%,
+      rgba(77, 107, 254, 0.12) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      40% 50% at 90% 60%,
+      rgba(139, 92, 246, 0.12) 0%,
+      transparent 100%
+    );
+  color: #e2e8f0;
+}
+
+/* 2. Typography Adjustments */
+body.dark-mode h1,
+body.dark-mode .section-title,
+body.dark-mode .project-card h3,
+body.dark-mode .footer-brand .logo-text {
+  color: #f8fafc; /* Crisp white for headers */
+}
+
+body.dark-mode p,
+body.dark-mode .footer-brand p,
+body.dark-mode .other-projects h3 {
+  color: #94a3b8; /* Muted slate for secondary text */
+}
+
+/* 3. Dark Navbar Glass */
+body.dark-mode nav.scrolled {
+  background: rgba(2, 6, 23, 0.65); /* Dark translucent glass */
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Microscopic white reflection */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* 4. Badges & Pills */
+body.dark-mode .hero-badge,
+body.dark-mode .skill-badges span {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+}
+
+body.dark-mode .skill-badges span:hover {
+  background: rgba(51, 65, 85, 0.8);
+}
+body.dark-mode .navIcon {
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+body.dark-mode .navIcon:hover {
+  background: rgba(51, 65, 85, 0.8);
+}
+/* 5. Secondary Action Buttons */
+body.dark-mode .action-buttons button:not(:first-child) {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+}
+
+body.dark-mode .action-buttons button:not(:first-child):hover {
+  background: rgba(51, 65, 85, 0.9);
+}
+
+/* 6. The Project Cards (Dark Glassmorphism) */
+body.dark-mode .project-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode .project-card:hover {
+  box-shadow: 0 15px 35px -10px rgba(77, 107, 254, 0.25); /* Brand blue neon glow */
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .project-icon {
+  background: rgba(30, 41, 59, 0.8);
+}
+
+body.dark-mode .card-tags span {
+  background: rgba(2, 6, 23, 0.6);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+}
+
+/* 7. Minor Projects */
+body.dark-mode .other-projects-links a {
+  background: rgba(15, 23, 42, 0.6);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+}
+
+body.dark-mode .other-projects-links a:hover {
+  background: rgba(30, 41, 59, 0.9);
+  color: #4d6bfe;
+}
+
+/* 8. Footer Line */
+body.dark-mode footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#mobileContect {
+  display: none;
+}
+
+/* mobile */
+
+/* =========================================
+   MOBILE RESPONSIVENESS (Phones & Tablets)
+   ========================================= */
+
+@media (max-width: 768px) {
+  /* 1. Navbar Adjustments (Saves horizontal space) */
+  /* 1. Navbar Adjustments (FIXED) */
+  nav {
+    padding: 10px 12px;
+    width: 100%;
+    margin-top: 15px;
+    height: auto;
+    border-radius: 0; 
+  }
+
+ 
+  nav.scrolled {
+    width: 95%;
+    border-radius: 40px; 
+  }
+
+  /* Hide the broken image placeholder */
+  .logo img {
+    height: 30px;
+  }
+
+  /* Bring your name back! */
+  .logo span {
+    display: block;
+    font-size: 1.1rem;
+    letter-spacing: -0.5px;
+  }
+
+  /* Extremely tight gap to fit all 3 buttons */
+  .nav-links {
+    gap: 6px;
+  }
+
+  /* Shrink buttons just enough to stay readable */
+  .navIcon,
+  .nav-contact-btn {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+
+  #mode {
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
+    padding: 0;
+  }
+
+  /* 2. Hero Section (Prevents text overflow) */
+  main {
+    padding: 30px 15px 10px 15px;
+  }
+
+  h1 {
+    font-size: 2.2rem; /* Drastically reduces headline size for mobile */
+    line-height: 1.2;
+  }
+
+  .hero-badge {
+    font-size: 0.85rem;
+    padding: 10px 18px;
+  }
+
+  /* 3. Skill Badges (Allows them to drop to the next line safely) */
+  .skill-badges {
+    flex-wrap: wrap; /* CRITICAL: Stops horizontal scrolling */
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .skill-badges span {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  /* 4. Projects Section Spacing */
+  .projects-section {
+    margin: 50px auto 30px auto;
+  }
+
+  .project-card {
+    padding: 20px; /* Gives content more room on small screens */
+  }
+
+  /* 5. Footer Stacking */
+  .footer-content {
+    flex-direction: column; /* Stacks brand and socials vertically */
+    text-align: center;
+    gap: 20px;
+  }
+
+  #pcContect {
+    display: none;
+  }
+
+  #mobileContect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Make it a perfect circle/square to match the Mode button */
+    width: 32px;
+    height: 32px;
+    padding: 0; /* Remove the inherited rectangle padding */
+    font-size: 1.1rem; /* Slightly larger icon for tap accessibility */
+    border-radius: 50%; /* Perfect circle */
+  }
+}
