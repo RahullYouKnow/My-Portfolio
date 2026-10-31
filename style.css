@@ -224,6 +224,7 @@ h1 {
 .skill-badges span:hover {
   transform: translateY(-2px);
   background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 5px 15px rgba(77, 107, 254, 0.1);
 }
 
 /* Official Tech Colors for the Icons */
