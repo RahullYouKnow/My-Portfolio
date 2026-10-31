@@ -243,6 +243,10 @@ h1 {
   color: #8b5cf6;
   font-size: 1.1rem;
 }
+.badge-java i {
+  color: #f97316; /* Premium vibrant orange */
+  font-size: 1.1rem;
+}
 /* Action Buttons Below Search */
 /* --- Projects Section Layout --- */
 .projects-section {
