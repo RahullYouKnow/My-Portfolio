@@ -99,8 +99,18 @@ nav.scrolled {
   transition: background 0.2s ease;
   transition: 0.3s;
 }
-
-.nav-links button:hover {
+.navIcon{
+  background: transparent;
+  border: 1px solid #d1d5db; /* Soft gray border, not black */
+  border-radius: 20px; /* Creates the pill shape */
+  padding: 8px 18px; /* Gives the text room to breathe */
+  font-size: 0.9rem;
+  color: #374151;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  transition: 0.3s;
+}
+.nav-links button:hover, .navIcon:hover {
   background: #f9fafb;
   border-color: #d1d5db;
   transform: translateY(-2px);
