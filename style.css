@@ -502,6 +502,7 @@ body.dark-mode .skill-badges span:hover {
 body.dark-mode .navIcon {
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  text-decoration: none;
 }
 body.dark-mode .navIcon:hover {
   background: rgba(51, 65, 85, 0.8);
