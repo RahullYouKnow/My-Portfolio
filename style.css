@@ -109,6 +109,7 @@ nav.scrolled {
   cursor: pointer;
   transition: background 0.2s ease;
   transition: 0.3s;
+  text-decoration: none;
 }
 .nav-links button:hover, .navIcon:hover {
   background: #f9fafb;
